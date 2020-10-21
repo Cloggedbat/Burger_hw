@@ -1,4 +1,4 @@
-<h1>Hungery hungery Burger man</h1>
+<h1>Hungry hungry Burger Man </h1>
 
 <div>
   <h2>Deliciousness below...</h2>
@@ -22,19 +22,20 @@
 
   <div class="form-group">
     <label for="slee">Sleepy?</label><br>
-    <input type="radio" name="sleepy" value="1" checked> Sleepy!<br>
-    <input type="radio" name="sleepy" value="0"> Awake
+    <input type="radio" name="eaten" value="1" checked> being made!<br>
+    <input type="radio" name="eaten" value="0"> eaten
   </div>
 
-  <button type="submit">Add Burger</button>
+  <button id= "subButton"type="submit">Add Burger</button>
 </form>
 
 <h2>Burgers chowed...</h2>
 
 <ul>
-  {{#each cats}}
-    {{#if sleepy}}
-      {{> cats/cat-block sleep=false}}
+  {{#each burger}}
+  asdf
+    {{#if eaten}}
+      {{> burgers-block}}
     {{/if}}
   {{/each}}
 </ul>

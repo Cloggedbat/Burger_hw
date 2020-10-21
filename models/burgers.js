@@ -9,9 +9,11 @@ var burgers = {
   },
   // The variables cols and vals are arrays.
   create: (cols, vals, cb) => {
-    orm.create("menu", cols, vals, function(res) {
-      cb(res);
-    });
+   console.log("does this work", "menu", cols, vals)
+   
+    // orm.create("menu", cols, vals, function(res) {
+    //   cb(res);
+    // });
   },
   update: (objColVals, condition, cb) => {
     orm.update("menu", objColVals, condition, function(res) {

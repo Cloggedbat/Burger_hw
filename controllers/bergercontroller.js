@@ -18,30 +18,40 @@ router.get("/", function (req, res) {
   });
 });
 
+
+
+
+
 router.post("/api/burgers", function (req, res) {
-  burgers.create([
-    "name", "true"
-  ], [
-    req.body.name, req.body.sleepy
-  ], function (result) {
+  console.log("MArk",req.body)
+  burgers.create(
+ function (result) {
     // Send back the ID of the new quote
     res.json({ id: result.insertId });
+  
   });
 });
 
-router.post("/api/burgers", (req, res) => {
-  burger.create(["name", "Cheese Burger"], [req.body.name, req.body.cheeseburger], (result) => {
-      res.json({ id: result.insertID });
-  });
-});
+
+
+
+
+
+// router.post("/api/burgers", (req, res) => {
+//   console.log("aj")
+//   burger.create(["name", "Cheese Burger"], [req.body.name, req.body.cheeseburger], (result) => {
+//       res.json({ id: result.insertID });
+//   });
+// });
 
 // Create put route to get burgers id
 router.put("/api/burgers/:id", (req, res) => {
+  console.log("phill")
   var condition = "id = " + req.params.id;
   console.log("condition", condition);
   burger.update(
       {
-          blackblue: req.body.bbq
+          blackblue: req.body.blackblue
       },
       condition,
       (result) => {
