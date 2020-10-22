@@ -1,23 +1,26 @@
+// var orm = require("../config/orm.js");
+
 $(document).ready(function(){
     $("#subButton").on("click", function(event){
         event.preventDefault()
         console.log("click")
     
-    $.ajax({
-        method: 'POST',
-        data: {
-            name:"cheese burger"
-            },
-        url: "api/burgers"
-    })
-    .done(function(){
-        console.log(".done")
-
-
-    })
+        var newBurger = {
+            name: $("#box1").val().trim(),
+        }
+console.log(newBurger)
+        $.ajax("/api/Burgers", {
+            type: 'POST',
+            data: newBurger,
+        })
+        .done(function(){
+            console.log(".done")
+            
+            location.reload()
+            
+        })
+        
     
     })
 
 })
-
-

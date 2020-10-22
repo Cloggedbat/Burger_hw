@@ -8,12 +8,13 @@ var burgers = {
     });
   },
   // The variables cols and vals are arrays.
-  create: (cols, vals, cb) => {
-   console.log("does this work", "menu", cols, vals)
+  create: (name, cb) => {
+   console.log("does this work", "menu")
    
-    // orm.create("menu", cols, vals, function(res) {
-    //   cb(res);
-    // });
+    orm.create(name, function(res) {
+      console.log(res)
+      cb(res);
+    });
   },
   update: (objColVals, condition, cb) => {
     orm.update("menu", objColVals, condition, function(res) {

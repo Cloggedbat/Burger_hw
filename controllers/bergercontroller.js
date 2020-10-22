@@ -23,13 +23,15 @@ router.get("/", function (req, res) {
 
 
 router.post("/api/burgers", function (req, res) {
-  console.log("MArk",req.body)
-  burgers.create(
- function (result) {
+  console.log("MArk",req.body.name)
+  burgers.create(req.body.name), 
+ 
+ 
+  function (result) {
     // Send back the ID of the new quote
     res.json({ id: result.insertId });
   
-  });
+  };
 });
 
 
@@ -37,7 +39,7 @@ router.post("/api/burgers", function (req, res) {
 
 
 
-// router.post("/api/burgers", (req, res) => {
+// router.post("/api/burgerscontroller", (req, res) => {
 //   console.log("aj")
 //   burger.create(["name", "Cheese Burger"], [req.body.name, req.body.cheeseburger], (result) => {
 //       res.json({ id: result.insertID });
@@ -45,24 +47,31 @@ router.post("/api/burgers", function (req, res) {
 // });
 
 // Create put route to get burgers id
-router.put("/api/burgers/:id", (req, res) => {
-  console.log("phill")
-  var condition = "id = " + req.params.id;
-  console.log("condition", condition);
-  burger.update(
-      {
-          blackblue: req.body.blackblue
-      },
-      condition,
-      (result) => {
-          if (result.changedRows === 0) {
-              // If no rows were changed, then the ID must not exist, so 404
-              return res.status(404).end();
-          }
-          res.status(200).end();
-      }
-  );
-});
+
+
+
+
+
+
+
+// router.put("/api/burgers/:id", (req, res) => {
+//   console.log("phill")
+//   var condition = "id = " + req.params.id;
+//   console.log("condition", condition);
+//   burger.update(
+//       {
+//           blackblue: req.body.blackblue
+//       },
+//       condition,
+//       (result) => {
+//           if (result.changedRows === 0) {
+//               // If no rows were changed, then the ID must not exist, so 404
+//               return res.status(404).end();
+//           }
+//           res.status(200).end();
+//       }
+//   );
+// });
 
 
 
