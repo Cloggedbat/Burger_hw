@@ -17,16 +17,13 @@ var orm = {
   },
   
   createOne: function (name, cb) {
-    
     var queryString = "INSERT INTO menu (name) VALUES (?)"
-
     // console.log(queryString);
-
     connection.query(queryString, [name], function (err, result) {
       if (err) {
         throw err;
       }
-console.log("inside", result)
+// console.log("inside", result)
       cb(result);
     });
   },
@@ -45,20 +42,7 @@ console.log("inside", result)
       cb(result);
     });
   },
-  //   delete: function(table, condition, cb) {
-  //     var queryString = "DELETE FROM " + table;
-  //     queryString += " WHERE ";
-  //     queryString += condition;
-
-  //     connection.query(queryString, function(err, result) {
-  //       if (err) {
-  //         throw err;
-  //       }
-
-  //       cb(result);
-  //     });
-  //   }
+  
 };
 
-// Export the orm object for the model (cat.js).
 module.exports = orm;
