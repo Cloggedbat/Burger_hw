@@ -5,42 +5,39 @@ var connection = require("./connection.js");
 // Object for all our SQL statement functions.
 var orm = {
   all: function (tableInput, cb) {
-    var queryString = "SELECT * FROM " + tableInput + ";";
+    var queryString = "SELECT * FROM ??;";
     connection.query(queryString, [tableInput], function (err, result) {
       if (err) {
         throw err;
       }
       cb(result);
+      console.log("this is the dam cb in orm", result)
     });
-    
+    // console.log("this is all", all)
   },
   
   createOne: function (name, cb) {
     
-    var queryString = "INSERT INTO menu (name) VALUES (?)";
+    var queryString = "INSERT INTO menu (name) VALUES (?)"
 
+    // console.log(queryString);
 
-    console.log(queryString);
-
-    connection.query(queryString, name, function (err, result) {
+    connection.query(queryString, [name], function (err, result) {
       if (err) {
         throw err;
       }
-
+console.log("inside", result)
       cb(result);
     });
   },
   // An example of objColVals would be {name: panther, sleepy: true}
-  update: function (table, objColVals, condition, cb) {
-    var queryString = "UPDATE " + table;
-
-    queryString += " SET ";
-    queryString += objToSql(objColVals);
-    queryString += " WHERE ";
-    queryString += condition;
-
+  
+  
+  
+  update: function (table, eaten, id, cb) {
+    var queryString = "UPDATE ?? SET ?? WHERE id=?;"
     console.log(queryString);
-    connection.query(queryString, function (err, result) {
+    connection.query(queryString, [table, eaten, id], function (err, result) {
       if (err) {
         throw err;
       }

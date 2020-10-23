@@ -10,13 +10,14 @@
 <div>
   <h2>Deliciousness below...</h2>
 
+
 <h2>Chef Suggestions?</h2>
 
 <ul>
-  {{#each menu}}
-    {{#if name}}
+  {{#each burger}}
+    {{#unless eaten}}
       {{> burgers-block}}
-    {{/if}}
+    {{/unless}}
   {{/each}}
 </ul>
 

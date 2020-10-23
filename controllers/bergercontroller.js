@@ -23,7 +23,7 @@ router.get("/", function (req, res) {
 
 
 router.post("/api/burgers", function (req, res) {
-  console.log("MArk")
+  // console.log("MArk")
   burgers.create(req.body.name), 
   
   function (result) {
