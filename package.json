@@ -1,5 +1,5 @@
 {
-  "name": "the-employee-tracker",
+  "name": "burger_hw",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Cloggedbat/The-Employee-Tracker.git"
+    "url": "git+https://github.com/Cloggedbat/Burger_hw.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Cloggedbat/The-Employee-Tracker/issues"
+    "url": "https://github.com/Cloggedbat/Burger_hw/issues"
   },
-  "homepage": "https://github.com/Cloggedbat/The-Employee-Tracker#readme",
+  "homepage": "https://github.com/Cloggedbat/Burger_hw#readme",
   "dependencies": {
     "console.table": "^0.10.0",
     "dotenv": "^8.2.0",
