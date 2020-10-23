@@ -13,7 +13,7 @@ router.get("/", function (req, res) {
     var burgerObject = {
       burger: data
     };
-    console.log(burgerObject);
+    console.log("render dam you", burgerObject);
     res.render("index", burgerObject);
   });
 });
@@ -23,18 +23,15 @@ router.get("/", function (req, res) {
 
 
 router.post("/api/burgers", function (req, res) {
-  console.log("MArk",req.body.name)
+  console.log("MArk")
   burgers.create(req.body.name), 
- 
- 
+  
   function (result) {
     // Send back the ID of the new quote
     res.json({ id: result.insertId });
   
   };
 });
-
-
 
 
 
@@ -58,9 +55,9 @@ router.post("/api/burgers", function (req, res) {
 //   console.log("phill")
 //   var condition = "id = " + req.params.id;
 //   console.log("condition", condition);
-//   burger.update(
+//   burgers.update(
 //       {
-//           blackblue: req.body.blackblue
+//           eaten: req.body.blackblue
 //       },
 //       condition,
 //       (result) => {

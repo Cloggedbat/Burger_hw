@@ -1,4 +1,4 @@
-var connection = require("../config/connection.js");
+var connection = require("./connection.js");
 
 // Helper function for SQL syntax.
 
@@ -6,21 +6,23 @@ var connection = require("../config/connection.js");
 var orm = {
   all: function (tableInput, cb) {
     var queryString = "SELECT * FROM " + tableInput + ";";
-    connection.query(queryString, function (err, result) {
+    connection.query(queryString, [tableInput], function (err, result) {
       if (err) {
         throw err;
       }
       cb(result);
     });
+    
   },
-  create: function (name, cb) {
-
+  
+  createOne: function (name, cb) {
+    
     var queryString = "INSERT INTO menu (name) VALUES (?)";
 
 
     console.log(queryString);
 
-    connection.query(queryString, [name], function (err, result) {
+    connection.query(queryString, name, function (err, result) {
       if (err) {
         throw err;
       }
