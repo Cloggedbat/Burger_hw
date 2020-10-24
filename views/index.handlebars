@@ -1,49 +1,57 @@
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
-    <h1 class="display-4">Fluid jumbotron</h1>
-    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+    <h1 class="display-4 text-center">Hungry hungry Burger Man</h1>
+    <p class="lead text-center">Deliciousness below...</p>
+  </div>
+
+
+  <div>
+
+
+    <form class="create-form">
+
+      <div class="form-group text-center">
+        <label for="bg">Burger Name:</label>
+        <input type="text" id="box1" name="name">
+        <button id="subButton" type="submit">Add Burger</button>
+      </div>
+    </form>
+
+
+   <div class="container">
+  <div class="row mt-5">
+
+    <div class="col-md-6">
+      <h3 class="text-center">Burgers You've Created</h3>
+      <div class="list-group">
+
+        {{#each burger}}
+        {{#unless eaten}}
+        <a href="#" class="list-group-item list-group-item-action">
+          {{this.name}}
+          <button data-id="{{this.id}}"  type="submit" class='eat btn btn-danger ml-3'>Destroy</button>
+        </a>
+        {{/unless}}
+        {{/each}}
+{{!-- data-eaten="{{eaten}} --}}
+      </div>
+    </div>
+
+    {{!-- Div, list group and handlebars syntax for eaten burgers --}}
+    <div class="col-md-6">
+      <h3 class="text-center">Devoured Burgers</h3>
+      <div class="list-group">
+
+        {{#each burger}}
+        {{#if eaten}}
+        <a href="#" class="list-group-item list-group-item-action disabled">
+          {{this.id}}. {{name}}
+          <i class="fas fa-hamburger"></i>
+        </a>
+        {{/if}}
+        {{/each}}
+
+      </div>
+    </div>
   </div>
 </div>
-
-<h1>Hungry hungry Burger Man </h1>
-
-<div>
-  <h2>Deliciousness below...</h2>
-
-
-<h2>Chef Suggestions?</h2>
-
-<ul>
-  {{#each burger}}
-    {{#unless eaten}}
-      {{> burgers-block}}
-    {{/unless}}
-  {{/each}}
-</ul>
-
-<form class="create-form">
-
-  <div class="form-group">
-    <label for="bg">Burger Name:</label>
-    <input type="text" id="box1" name="name">
-  </div>
-
-  <div class="form-group">
-    <label for="slee">Sleepy?</label><br>
-    <input type="radio" name="eaten" value="1" checked> being made!<br>
-    <input type="radio" name="eaten" value="0"> eaten
-  </div>
-
-  <button id= "subButton"type="submit">Add Burger</button>
-</form>
-
-<h2>Burgers is Served...</h2>
-
-<ul>
-  {{#each burger}}
-  
-    {{#if eaten}}
-      {{> burgers-block}}
-    {{/if}}
-  {{/each}}
-</ul>

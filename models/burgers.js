@@ -29,8 +29,8 @@ var burgers = {
 
 
 
-  update: (objColVals, condition, cb) => {
-    orm.update("menu", objColVals, condition, function(res) {
+  update: (eaten, id, cb) => {
+    orm.update( eaten, function(res) {
       cb(res);
     });
   },
